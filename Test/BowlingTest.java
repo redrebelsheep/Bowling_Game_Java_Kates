@@ -13,42 +13,48 @@ public class BowlingTest {
     }
 
     @Test
-    public void canRoll(){
-        game.roll(0);
-    }
-
-    @Test
     public void gameGutterGameWith0(){
+        //When
         rollMany(20, 0);
+        //Except
         assertEquals(0, game.score());
     }
 
     @Test
     public void gameAllOne0sWithALL(){
+        //When
         rollMany(20, 1);
+        //Except
         assertEquals(20, game.score());
     }
 
     @Test
     public void gameWithSpare(){
+        //When
         rollSpare();
         game.roll(3);
         rollMany(17, 0);
+        //Except
         assertEquals(16, game.score());
     }
 
     @Test
     public void oneStrike(){
+        //When
         rollStrike();
         game.roll(3);
         game.roll(5);
         rollMany(16,0);
+        //Except
         assertEquals(26, game.score());
     }
 
     @Test
     public void perfektGame(){
+        //When
         rollMany(12,10);
+
+        //Except
         assertEquals(300, game.score());
     }
 
